@@ -1,0 +1,317 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+  assign color_scheme = section.settings.color_scheme
+
+  assign contact_text = section.settings.contact_text
+  assign text_got_questions = section.settings.text_got_questions
+  assign link_got_questions = section.settings.link_got_questions
+  assign input_text = section.settings.input_text
+  assign footer_layout = section.settings.footer_layout
+  assign footer_linklist = section.settings.footer_linklist
+  assign copyright_text = section.settings.copyright_text
+  assign copyright_linklist = section.settings.copyright_linklist
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+{% render 'global-sections-css-variables-setter' %}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary"
+>
+  <div class="container">
+    <ul class="smD:flex-row smD:gap-5 flex flex-col">
+      <li
+        class="
+          mt-6 smD:mt-0 smD:w-1/3
+          {% if footer_layout == 'layout_footer_with_text' %} smD:w-1/4 order-2 smD:order-1  {% else %} smD:w-1/3 {% endif %}
+        "
+      >
+        <ul>
+          <li>
+            {% if settings.logo_light %}
+              {{
+                settings.logo_light
+                | image_url: width: logo_width
+                | image_tag: loading: 'lazy', alt: shop.name, class: 'mb-5 fill-red'
+              }}
+            {% endif %}
+          </li>
+          {% case footer_layout %}
+            {% when 'layout_footer_with_text' %}
+              <li>
+                {% if text_got_questions != blank %}
+                  <a class="text-sc-body-primary mb-2 block text-xl" href="{{ link_got_questions }}">
+                    {{- text_got_questions -}}
+                  </a>
+                {% endif %}
+              </li>
+              <li class="text-sc-body-primary text-lg">
+                {% if contact_text != blank %}
+                  {{ contact_text | newline_to_br }}
+                {% endif %}
+              </li>
+            {% when 'layout_footer_with_form' %}
+              <li class="mb-6">
+                <div class="text-sc-body-primary mb-7 text-lg">{{ input_text }}</div>
+                {% render 'layout-newsletter-form' %}
+              </li>
+          {% endcase %}
+          <li class="text-sc-body-primary {% if footer_layout == 'layout_footer_with_form' %} smD:block hidden {% endif %}">
+            {% render 'social-media', class: 'flex gap-3 mt-7.5' %}
+          </li>
+        </ul>
+      </li>
+      <li class="w-full {% if footer_layout == 'layout_footer_with_text' %} smD:order-2 order-1 {% endif %}">
+        <ul
+          x-data="{ activeAccordion: 1 }"
+          class="smD:grid grid-cols-4"
+        >
+          {% for link in footer_linklist.links %}
+            <li class="text-sc-body-primary smD:py-0 smD:last:hidden border-sc-bg-secondary/30 smD:border-0 border-t-2 py-6 last:border-b-2">
+              {% if link.url == '#' %}
+                <p class="smD:block font-secondary mb-3 hidden text-xl">{{ link.title }}</p>
+                <button
+                  @click="activeAccordion === {{ forloop.index }} ? activeAccordion = null : activeAccordion = {{ forloop.index }}"
+                  class="smD:hidden font-secondary flex w-full items-center justify-between text-xl"
+                  type="button"
+                >
+                  <span>{{ link.title }}</span>
+                  <span x-show="activeAccordion !== {{ forloop.index }}">
+                    {% render 'icon', name: 'plus' %}
+                  </span>
+                  <span x-show="activeAccordion === {{ forloop.index }}">
+                    {% render 'icon', name: 'minis' %}
+                  </span>
+                </button>
+                <ul class="smD:block hidden">
+                  {% for child_link in link.links %}
+                    <li class="smD:mb-2 mb-4 last:mb-0">
+                      <a
+                        class="text-base"
+                        href="{{ child_link.url }}"
+                      >
+                        <span>{{ child_link.title }}</span>
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+                <div
+                  class="mt-3"
+                  x-show="activeAccordion === {{ forloop.index }}"
+                  x-collapse
+                >
+                  <ul class="smD:hidden block">
+                    {% for child_link in link.links %}
+                      <li class="mb-4 last:mb-0">
+                        <a
+                          class="text-base"
+                          href="{{ child_link.url }}"
+                        >
+                          <span>{{ child_link.title }}</span>
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% else %}
+                <a
+                  class="font-secondary text-xl"
+                  href="{{ link.url }}"
+                >
+                  <span>{{ link.title }}</span>
+                </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+    <div class="py-2.5 {% if footer_layout == 'layout_footer_with_text' %} py-12.5 {% endif %}">
+      <div
+        class="bg-sc-bg-secondary/30 h-[2px] w-full {% if footer_layout == 'layout_footer_with_form' %} hidden {% endif %}"
+      ></div>
+    </div>
+    <div class="flex items-center justify-between">
+      <div class="text-sc-body-primary text-base">{{ copyright_text }}</div>
+      <ul class="smD:flex hidden gap-4">
+        {% for link in copyright_linklist.links %}
+          {% for child_link in link.links %}
+            <li>
+              <a
+                class="text-sc-body-primary text-sm"
+                href="{{ child_link.url }}"
+              >
+                <span>{{ child_link.title }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="text-sc-body-primary smD:hidden {% if footer_layout == 'layout_footer_with_text' %} hidden {% endif %}">
+      {% render 'social-media', class: 'flex gap-3 mt-7.5' %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "footer",
+  "tag": "footer",
+  "settings": [
+    {
+      "type": "select",
+      "id": "footer_layout",
+      "label": "Footer layout",
+      "options": [
+        {
+          "value": "layout_footer_with_text",
+          "label": "layout footer with text"
+        },
+        {
+          "value": "layout_footer_with_form",
+          "label": "layout footer with form"
+        }
+      ],
+      "default": "layout_footer_with_text"
+    },
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "FOOTER"
+    },
+    {
+      "type": "text",
+      "id": "input_text",
+      "label": "Enter input text layout with form"
+    },
+    {
+      "type": "richtext",
+      "id": "contact_text",
+      "label": "Enter contact text"
+    },
+    {
+      "type": "text",
+      "id": "text_got_questions",
+      "label": "Enter text Got Questions"
+    },
+    {
+      "type": "url",
+      "id": "link_got_questions",
+      "label": "Enter link Got Questions"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_linklist",
+      "label": "Select footer links"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Enter copyright text"
+    },
+    {
+      "type": "link_list",
+      "id": "copyright_linklist",
+      "label": "Select copyright links"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "color",
+      "id": "sc-title",
+      "label": "Title",
+      "default": "#151515"
+    },
+    {
+      "type": "color",
+      "id": "sc-subtitle",
+      "label": "Subtitle",
+      "default": "#054A49"
+    },
+    {
+      "type": "color",
+      "id": "sc-body-primary",
+      "label": "Body primary",
+      "default": "#52525B"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "sc-bg-primary",
+      "label": "Primary background",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "footer",
+      "category": "Repeatable"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,94 @@
+{%- capture result -%}
+  {% comment %}
+    DESCIPTION:
+      group: 'btn' or 'link'
+      variation: 'primary' or 'secondary'
+      type: 'filled', 'pill', 'outline'
+
+    PARAMS:
+      btn: abstract value 'group_variation_type', example value 'btn_primary_outline'
+
+    HOW TO USE:
+      <a class="{% render 'btn-class', btn: btn %}">
+        <span>Btn Text</span>
+      </a>
+    CHECK SHEMA BELOW
+  {% endcomment %}
+
+  {% assign keys = btn | split: '_' %}
+  {% assign group = keys[0] %}
+  {% assign variation = keys[1] %}
+  {% assign type = keys[2] %}
+  {% case group %}
+    {% when 'btn' %}
+      {% case variation %}
+        {% when 'primary' %}
+          {% case type %}
+            {% when 'filled' %}
+              btn btn--primary btn--filled btn--sm md:btn--md smD:btn--smD 2xl:btn--2xl 2k:btn--2k
+            {% when 'pill' %}
+              btn btn--primary btn--pill btn--sm md:btn--md smD:btn--smD 2xl:btn--2xl 2k:btn--2k
+            {% when 'outline' %}
+              btn btn--primary btn--outline btn--sm md:btn--md smD:btn--smD 2xl:btn--2xl 2k:btn--2k
+          {% endcase %}
+        {% when 'secondary' %}
+          {% case type %}
+            {% when 'filled' %}
+              btn btn--secondary btn--filled btn--sm md:btn--md smD:btn--smD 2xl:btn--2xl 2k:btn--2k
+            {% when 'pill' %}
+              btn btn--secondary btn--pill btn--sm md:btn--md smD:btn--smD 2xl:btn--2xl 2k:btn--2k
+            {% when 'outline' %}
+              btn btn--secondary btn--outline btn--sm md:btn--md smD:btn--smD 2xl:btn--2xl 2k:btn--2k
+          {% endcase %}
+      {% endcase %}
+    {% when 'link' %}
+      {% case variation %}
+        {% when 'primary' %}
+          link link--primary link--sm md:link--md smD:link--smD 2xl:link--2xl 2k:link--2k
+        {% when 'secondary' %}
+          link link--secondary link--sm md:link--md smD:link--smD 2xl:link--2xl 2k:link--2k
+      {% endcase %}
+  {% endcase %}
+  {% comment %}
+    SCHEMA:
+    {
+      "type": "select",
+      "id": "btn",
+      "label": "Select button type",
+      "options": [
+        {
+          "value": "btn_primary_filled",
+          "label": "Primary filled"
+        },
+        {
+          "value": "btn_secondary_filled",
+          "label": "Secondary filled"
+        },
+        {
+          "value": "btn_primary_pill",
+          "label": "Primary pill"
+        },
+        {
+          "value": "btn_secondary_pill",
+          "label": "Secondary pill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        },
+        {
+          "value": "link_secondary",
+          "label": "Link secondary"
+        }
+      ]
+    }
+  {% endcomment %}
+{%- endcapture -%}{{ result | strip | strip_newlines }}

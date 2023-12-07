@@ -1,0 +1,28 @@
+.marquee {
+    animation: scrolling 7s linear infinite;
+    -webkit-animation: scrolling 7s linear infinite;
+}
+
+.marquee-reverse {
+    animation: scrolling-reverse 7s linear infinite;
+    -webkit-animation: scrolling-reverse 7s linear infinite;
+}
+
+[data-marquee-inner]:not(.disable-pause-on-hover):hover .marquee {
+    animation-play-state: paused;
+}
+
+@keyframes scrolling {
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scrolling-reverse {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

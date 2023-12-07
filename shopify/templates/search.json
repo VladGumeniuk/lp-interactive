@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "search",
+      "settings": {
+        "section_anchor_id": "SECTION TITLE",
+        "pt_mob": 60,
+        "pb_mob": 60,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 80,
+        "pb_desk": 80
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

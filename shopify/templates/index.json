@@ -1,0 +1,181 @@
+{
+  "sections": {
+    "21c67cce-a32a-4d15-8d27-4d69e575f05d": {
+      "type": "hero",
+      "settings": {
+        "title": "Hi there,",
+        "name": "Jane!",
+        "text": "Welcome to your report summary. Here, you’ll be able to find your diagnosis and learn about next steps.",
+        "btn_text": "Let’s get started.",
+        "btn_link": "",
+        "pt_mob": 30,
+        "pb_mob": 0,
+        "pt_tab": 60,
+        "pb_tab": 0,
+        "pt_desk": 145,
+        "pb_desk": 0
+      }
+    },
+    "3e3fbaf2-a353-4928-9c92-6a5e622e8698": {
+      "type": "care-team",
+      "blocks": {
+        "fa26a243-8cca-4e6d-8242-d50b0ac013b3": {
+          "type": "block",
+          "settings": {
+            "title_slider": "Visual Thinking",
+            "text_slider": "<p>Your ability to visualize problems from a bird’s eye view is particularly impressive. Like many people with dyslexia, you can conjure an idea in your mind, which you can then transform into a tangible output.<\/p>"
+          }
+        },
+        "90e45a15-918f-4965-9da2-40222d906dc0": {
+          "type": "block",
+          "settings": {
+            "title_slider": "Visual Thinking",
+            "text_slider": "<p>Your ability to visualize problems from a bird’s eye view is particularly impressive. Like many people with dyslexia, you can conjure an idea in your mind, which you can then transform into a tangible output.<\/p>"
+          }
+        },
+        "ef3b3ef1-e1f7-4e10-acbc-90b64990c89e": {
+          "type": "block",
+          "settings": {
+            "title_slider": "Visual Thinking",
+            "text_slider": "<p>Your ability to visualize problems from a bird’s eye view is particularly impressive. Like many people with dyslexia, you can conjure an idea in your mind, which you can then transform into a tangible output.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "fa26a243-8cca-4e6d-8242-d50b0ac013b3",
+        "90e45a15-918f-4965-9da2-40222d906dc0",
+        "ef3b3ef1-e1f7-4e10-acbc-90b64990c89e"
+      ],
+      "settings": {
+        "title": "A note from your Care Team",
+        "name": "Hi Jane,",
+        "text": "<p>Below you'll see a summary of our findings and recommendations to support your learning in the future. Getting results of any kind can be scary, but we’re here to help you through this journey. Please don't hesitate to reach out with any questions – you're part of the Marker family now. P.S. See a note below from Dr. Connell!<\/p>",
+        "title_block_slider": "Your Strengths",
+        "person_image": "shopify:\/\/shop_images\/person.png",
+        "name_person": "Dr. Connell, Psy.D",
+        "description_person": "<p>“Jane is a bright, capable young woman. Though reading has historically been a challenge for her, I’m confident she will be able to master phonics with Orton Gillingham instruction.”<\/p>",
+        "signature_person": "shopify:\/\/shop_images\/mocksignature.svg",
+        "pt_mob": 30,
+        "pb_mob": 20,
+        "pt_tab": 60,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 50
+      }
+    },
+    "58368e58-d43b-4fcb-830b-baf61c5e898d": {
+      "type": "your-results",
+      "blocks": {
+        "fa296f16-d6e8-4d4a-875d-047e3971d491": {
+          "type": "results",
+          "settings": {
+            "title_block": "ADHD",
+            "text_block": "<p>Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterised by excessive amounts of inattention, hyperactivity, and impulsivity that are pervasive, impairing in multiple contexts, and otherwise age-inappropriate.<\/p>",
+            "accordion_title": "What is ADHD?",
+            "accordion_text": "<p>Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterised by excessive amounts of inattention, hyperactivity, and impulsivity that are pervasive, impairing in multiple contexts, and otherwise  age-inappropriate.<\/p>",
+            "accordion_title_for_links": "OUR RECOMMENDATIONS",
+            "accordion_linklist": "adhd",
+            "accordion_btn_text_1": "Book Coaching Session",
+            "accordion_btn_url_1": "",
+            "accordion_btn_text_2": "Speak with a Care Navigator",
+            "accordion_btn_url_2": "",
+            "accordion_title_block_slider": "You’re Not Alone!",
+            "accordion_text_block_slider": "<p>These famous people throughout history have been diagnosed with ADHD.<\/p>",
+            "slider_name_1": "Richard Golden",
+            "slider_image_1": "shopify:\/\/shop_images\/accodion-person.jpg",
+            "slider_text_1": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation....<\/p>",
+            "slider_name_2": "Maik Golden",
+            "slider_image_2": "shopify:\/\/shop_images\/accodion-person.jpg",
+            "slider_text_2": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation....<\/p>",
+            "slider_name_3": "Taric Golden",
+            "slider_image_3": "shopify:\/\/shop_images\/accodion-person.jpg",
+            "slider_text_3": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation....<\/p>",
+            "slider_name_4": "",
+            "slider_text_4": "",
+            "slider_name_5": "",
+            "slider_text_5": ""
+          }
+        },
+        "e09cc6a9-6aca-4cdc-b3d1-6528833b7d1a": {
+          "type": "results",
+          "settings": {
+            "title_block": "Dyslexia",
+            "text_block": "<p>Dyslexia is a learning disorder that involves difficulty reading due to problems identifying speech sounds and learning how they relate to letters and words (decoding).<\/p>",
+            "accordion_title": "What is Dyslexia?",
+            "accordion_text": "<p>Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterised by excessive amounts of inattention, hyperactivity, and impulsivity that are pervasive, impairing in multiple contexts, and otherwise  age-inappropriate.<\/p>",
+            "accordion_title_for_links": "OUR RECOMMENDATIONS",
+            "accordion_linklist": "adhd",
+            "accordion_btn_text_1": "Book Coaching Session",
+            "accordion_btn_url_1": "",
+            "accordion_btn_text_2": "Speak with a Care Navigator",
+            "accordion_btn_url_2": "",
+            "accordion_title_block_slider": "You’re Not Alone!",
+            "accordion_text_block_slider": "<p>These famous people throughout history have been diagnosed with ADHD.<\/p>",
+            "slider_name_1": "Eric Fish",
+            "slider_image_1": "shopify:\/\/shop_images\/accodion-person.jpg",
+            "slider_text_1": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation....<\/p>",
+            "slider_name_2": "Fernando Fish",
+            "slider_text_2": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation....<\/p>",
+            "slider_name_3": "Malik Fish",
+            "slider_image_3": "shopify:\/\/shop_images\/accodion-person.jpg",
+            "slider_text_3": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation....<\/p>",
+            "slider_name_4": "",
+            "slider_text_4": "",
+            "slider_name_5": "",
+            "slider_text_5": ""
+          }
+        },
+        "31ae5947-b584-4989-aae2-fd74847c11a0": {
+          "type": "results",
+          "settings": {
+            "title_block": "Dyscalculia",
+            "text_block": "<p>Dyscalculia affects a person's ability to understand number-based information and math. People who have dyscalculia struggle with numbers and math because their brains don't process math-related concepts.<\/p>",
+            "accordion_title": "What is Dyscalculia?",
+            "accordion_text": "<p>Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterised by excessive amounts of inattention, hyperactivity, and impulsivity that are pervasive, impairing in multiple contexts, and otherwise  age-inappropriate.<\/p>",
+            "accordion_title_for_links": "OUR RECOMMENDATIONS",
+            "accordion_linklist": "adhd",
+            "accordion_btn_text_1": "Book Coaching Session",
+            "accordion_btn_url_1": "",
+            "accordion_btn_text_2": "Speak with a Care Navigator",
+            "accordion_btn_url_2": "",
+            "accordion_title_block_slider": "You’re Not Alone!",
+            "accordion_text_block_slider": "<p>These famous people throughout history have been diagnosed with ADHD.<\/p>",
+            "slider_name_1": "Roberto Braum",
+            "slider_image_1": "shopify:\/\/shop_images\/accodion-person.jpg",
+            "slider_text_1": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation....<\/p>",
+            "slider_name_2": "Jack Braum",
+            "slider_image_2": "shopify:\/\/shop_images\/accodion-person.jpg",
+            "slider_text_2": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation....<\/p>",
+            "slider_name_3": "Jesus Braum",
+            "slider_image_3": "shopify:\/\/shop_images\/accodion-person.jpg",
+            "slider_text_3": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation....<\/p>",
+            "slider_name_4": "",
+            "slider_text_4": "",
+            "slider_name_5": "",
+            "slider_text_5": ""
+          }
+        }
+      },
+      "block_order": [
+        "fa296f16-d6e8-4d4a-875d-047e3971d491",
+        "e09cc6a9-6aca-4cdc-b3d1-6528833b7d1a",
+        "31ae5947-b584-4989-aae2-fd74847c11a0"
+      ],
+      "settings": {
+        "title": "Your results:",
+        "subtitle": "Select a diagnosis to learn about our recommendations.",
+        "pt_mob": 20,
+        "pb_mob": 25,
+        "pt_tab": 30,
+        "pb_tab": 40,
+        "pt_desk": 50,
+        "pb_desk": 70
+      }
+    }
+  },
+  "order": [
+    "21c67cce-a32a-4d15-8d27-4d69e575f05d",
+    "3e3fbaf2-a353-4928-9c92-6a5e622e8698",
+    "58368e58-d43b-4fcb-830b-baf61c5e898d"
+  ]
+}

@@ -1,0 +1,5 @@
+@layer components {
+  .btn {
+    @apply bg-yellow-highlight hover:bg-yellow-highlight/30 duration-300 text-blue md:px-6.5 rounded px-3 py-2 text-lg font-medium
+  }
+}

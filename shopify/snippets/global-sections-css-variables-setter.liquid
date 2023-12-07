@@ -1,0 +1,64 @@
+<style>
+    [data-section-id='{{ section.id }}'] {
+    {% if section.settings.sc-title %}
+      --sc-title: {{ section.settings.sc-title.rgb }};
+    {% endif %}
+    {% if section.settings.sc-subtitle %}
+      --sc-subtitle: {{ section.settings.sc-subtitle.rgb }};
+    {% endif %}
+    {% if section.settings.sc-body-primary %}
+      --sc-body-primary: {{ section.settings.sc-body-primary.rgb }};
+    {% endif %}
+    {% if section.settings.sc-body-secondary %}
+      --sc-body-secondary: {{ section.settings.sc-body-secondary.rgb }};
+    {% endif %}
+    {% if section.settings.sc-bg-primary %}
+      --sc-bg-primary: {{ section.settings.sc-bg-primary.rgb }};
+    {% endif %}
+    {% if section.settings.sc-bg-primary-gradient %}
+      --sc-bg-primary-gradient: {{ section.settings.sc-bg-primary-gradient }};
+    {% endif %}
+    {% if section.settings.sc-bg-secondary %}
+      --sc-bg-secondary: {{ section.settings.sc-bg-secondary.rgb }};
+    {% endif %}
+    {% if section.settings.sc-bg-secondary-gradient %}
+      --sc-bg-secondary-gradient: {{ section.settings.sc-bg-secondary-gradient }};
+    {% endif %}
+    {% if section.settings.sc-btn-primary-bg-default %}
+      --sc-btn-primary-bg-default: {{ section.settings.sc-btn-primary-bg-default.rgb }};
+    {% endif %}
+    {% if section.settings.sc-btn-primary-text-default %}
+      --sc-btn-primary-text-default: {{ section.settings.sc-btn-primary-text-default.rgb }};
+    {% endif %}
+    {% if section.settings.sc-btn-primary-bg-hover %}
+      --sc-btn-primary-bg-hover: {{ section.settings.sc-btn-primary-bg-hover.rgb }};
+    {% endif %}
+    {% if section.settings.sc-btn-primary-text-hover %}
+      --sc-btn-primary-text-hover: {{ section.settings.sc-btn-primary-text-hover.rgb }};
+    {% endif %}
+    {% if section.settings.sc-btn-secondary-bg-default %}
+      --sc-btn-secondary-bg-default: {{ section.settings.sc-btn-secondary-bg-default.rgb }};
+    {% endif %}
+    {% if section.settings.sc-btn-secondary-text-default %}
+      --sc-btn-secondary-text-default: {{ section.settings.sc-btn-secondary-text-default.rgb }};
+    {% endif %}
+    {% if section.settings.sc-btn-secondary-bg-hover %}
+      --sc-btn-secondary-bg-hover: {{ section.settings.sc-btn-secondary-bg-hover.rgb }};
+    {% endif %}
+    {% if section.settings.sc-btn-secondary-text-hover %}
+      --sc-btn-secondary-text-hover: {{ section.settings.sc-btn-secondary-text-hover.rgb }};
+    {% endif %}
+    {% if section.settings.sc-link-primary-text-default %}
+      --sc-link-primary-text-default: {{ section.settings.sc-link-primary-text-default.rgb }};
+    {% endif %}
+    {% if section.settings.sc-link-primary-text-hover %}
+      --sc-link-primary-text-hover: {{ section.settings.sc-link-primary-text-hover.rgb }};
+    {% endif %}
+    {% if section.settings.sc-link-secondary-text-default %}
+      --sc-link-secondary-text-default: {{ section.settings.sc-link-secondary-text-default.rgb }};
+    {% endif %}
+    {% if section.settings.sc-link-secondary-text-hover %}
+      --sc-link-secondary-text-hover: {{ section.settings.sc-link-secondary-text-hover.rgb }};
+    {% endif %}
+    }
+</style>

@@ -1,0 +1,282 @@
+{% liquid
+  assign title = section.settings.title
+  assign name = section.settings.name
+  assign text = section.settings.text
+
+  assign title_block_slider = section.settings.title_block_slider
+
+  assign person_image = section.settings.person_image
+  assign name_person = section.settings.name_person
+  assign description_person = section.settings.description_person
+  assign signature_person = section.settings.signature_person
+
+  assign slider_blocks = section.blocks | where: 'type', 'block'
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+<style>
+  [data-section-id='{{ section.id }}'] .swiper-pagination-bullets {
+    width: fit-content;
+
+  }
+  [data-section-id='{{ section.id }}'] .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 3px;
+  }
+  [data-section-id='{{ section.id }}'] .swiper-pagination-bullet {
+    width: 22px;
+    height: 22px;
+    opacity: 1;
+    background-color: transparent;
+    background: url("{{ settings.pagination_bullet | img_url: 'master' }}");
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  @media screen and (min-width: 992px) {
+    [data-section-id='{{ section.id }}'] .swiper-pagination-bullet {
+      background-size: auto;
+    }
+  }
+
+  [data-section-id='{{ section.id }}'] .swiper-pagination-bullet-active {
+    background: url("{{ settings.pagination_bullet_active | img_url: 'master' }}"), url("{{ settings.pagination_bullet | img_url: 'master' }}");
+    background-size: 10px, 16px;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+  }
+  @media screen and (min-width: 992px) {
+    [data-section-id='{{ section.id }}'] .swiper-pagination-bullet-active {
+      background-size: auto, auto;
+    }
+  }
+</style>
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+<div
+  data-section-id="{{ section.id }}"
+  x-ignore
+  ax-load
+  x-data="swiperSlider('{{section.id}}', 'care-team')"
+>
+  <div class="mx-auto px-4 max-w-[1037px]">
+    <div class="py-4.5 px-3.75 shadow-box-shadow rounded-r-block lg:px-11 lg:py-10">
+      {% if title != blank %}
+        <h2 class="text-blue mb-5.5 text-[43px] leading-[41px] font-light lg:mb-11">
+          {{ title }}
+        </h2>
+      {% endif %}
+
+      <div class="lg:space-x-12.5 flex flex-col lg:flex-row">
+        <div class="lg:mb-0 mb-12.5 lg:w-[60%]">
+            {% if text and name != blank %}
+              <div class="text-blue mb-4 text-base lg:text-lg">
+                {{ name }}
+              </div>
+              <div class="text-blue text-base lg:text-lg">
+                {{ text | newline_to_br }}
+              </div>
+            {% endif %}
+
+            <!-- PERSON CARD DESKTOP -->
+            <div class="mt-11 lg:inline-flex space-x-4 hidden">
+              {% render 'person-card',
+                person_image: person_image,
+                name_person: name_person,
+                description_person: description_person,
+                signature_person: signature_person
+              %}
+            </div>
+            <!-- PERSON CARD DESKTOP END -->
+        </div>
+
+        <div class="swiper lg:w-[40%] w-full">
+            <div class="bg-blue rounded-[3px] translate-y-[20px] inline-flex items-center py-2 px-2.5 relative z-10">
+              {% render 'icon', name: 'cup' %}
+              <h3 class="ml-1.5 text-lg font-bold text-white lg:text-xl">
+                {{ title_block_slider }}
+              </h3>
+            </div>
+            <div class="swiper-wrapper mx-3.5">
+              {% for block in slider_blocks %}
+                {% liquid
+                  assign title_slider = block.settings.title_slider
+                  assign text_slider = block.settings.text_slider
+                %}
+                <div class="swiper-slide px-5 lg:px-9 bg-yellow-highlight/30 pt-12.5 lg:pt-9 flex flex-col rounded-[4px]">
+                  <h3 class="text-blue text-lg font-bold lg:text-2xl">
+                    {{ title_slider }}
+                  </h3>
+                  <div class="text-blue mt-3.5 text-base px-1.5 font-light lg:text-xl flex-1">
+                    {{ text_slider }}
+                  </div>
+
+                  <div class="flex items-center lg:pb-15 pt-4 pb-4 justify-center space-x-5">
+                    <div class="swiper-btn-prev rotate-180 -mt-2">
+                      {% render 'icon', name: 'arrow', class: 'fill-blue' %}
+                    </div>
+                    <div class="swiper-pagination !static"></div>
+                    <div class="swiper-btn-next -mt-2">
+                      {% render 'icon', name: 'arrow', class: 'fill-blue' %}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+
+        <!-- PERSON CARD MOBILE -->
+        <div class="mt-11 inline-flex space-x-4 lg:hidden">
+          {% render 'person-card',
+            person_image: person_image,
+            name_person: name_person,
+            description_person: description_person,
+            signature_person: signature_person
+          %}
+        </div>
+        <!-- PERSON CARD MOBILE END -->
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Care Team",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "A note from your Care Team"
+    },
+    {
+      "type": "header",
+      "content": "Text block settings"
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "label": "Name | Text block",
+      "default": "Hi Jane,"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text | Text block"
+    },
+    {
+      "type": "header",
+      "content": "Slider settings"
+    },
+    {
+      "type": "text",
+      "id": "title_block_slider",
+      "label": "Title slider block",
+      "default": "Your Strengths"
+    },
+    {
+      "type": "header",
+      "content": "Person card settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "person_image",
+      "label": "Select image person"
+    },
+    {
+      "type": "text",
+      "id": "name_person",
+      "label": "Name person"
+    },
+    {
+      "type": "richtext",
+      "id": "description_person",
+      "label": "Description person"
+    },
+    {
+      "type": "image_picker",
+      "id": "signature_person",
+      "label": "Select signature image"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 70
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Care Team block slider",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title_slider",
+          "label": "Slider block title"
+        },
+        {
+          "type": "richtext",
+          "id": "text_slider",
+          "label": "Slider block text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Care Team",
+      "category": "Repeatable"
+    }
+  ]
+}
+{% endschema %}

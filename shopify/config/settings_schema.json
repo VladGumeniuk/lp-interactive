@@ -1,0 +1,399 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Binaery theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Binaery Agency",
+    "theme_documentation_url": "https:\/\/www.binaery.com\/",
+    "theme_support_url": "https:\/\/www.binaery.com\/"
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "32 x 32px .png recommended"
+      }
+    ]
+  },
+  {
+    "name": "Fonts",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_primary",
+        "label": "Primary font",
+        "info": "Used for headings\/titles",
+        "default": "roboto_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_secondary",
+        "label": "Secondary font",
+        "info": "Used for body\/text",
+        "default": "ubuntu_n4"
+      }
+    ]
+  },
+  {
+    "name": "LOGO",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo_mobile",
+        "label": "Mobile logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_desktop",
+        "label": "Desktop logo"
+      }
+    ]
+  },
+  {
+    "name": "Custom pagination slider",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "pagination_bullet",
+        "label": "Pagination bullet default"
+      },
+      {
+        "type": "image_picker",
+        "id": "pagination_bullet_active",
+        "label": "Pagination bullet active"
+      }
+    ]
+  },
+  {
+    "name": "COLORS",
+    "settings": [
+      {
+        "type": "color_scheme_group",
+        "id": "color_schemes",
+        "definition": [
+          {
+            "type": "header",
+            "content": "Typography"
+          },
+          {
+            "type": "color",
+            "id": "sc-title",
+            "label": "Title",
+            "default": "#151515"
+          },
+          {
+            "type": "color",
+            "id": "sc-subtitle",
+            "label": "Subtitle",
+            "default": "#054A49"
+          },
+          {
+            "type": "color",
+            "id": "sc-body-primary",
+            "label": "Body primary",
+            "default": "#52525B"
+          },
+          {
+            "type": "color",
+            "id": "sc-body-secondary",
+            "label": "Body secondary",
+            "default": "#86868c"
+          },
+          {
+            "type": "header",
+            "content": "Background"
+          },
+          {
+            "type": "color",
+            "id": "sc-bg-primary",
+            "label": "Primary background",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color_background",
+            "id": "sc-bg-primary-gradient",
+            "label": "Primary background gradient",
+            "info": "Background gradient replaces background where possible."
+          },
+          {
+            "type": "color",
+            "id": "sc-bg-secondary",
+            "label": "Secondary background",
+            "default": "#F6F6F6"
+          },
+          {
+            "type": "color_background",
+            "id": "sc-bg-secondary-gradient",
+            "label": "Secondary background gradient",
+            "info": "Background gradient replaces background where possible."
+          },
+          {
+            "type": "header",
+            "content": "Primary button"
+          },
+          {
+            "type": "color",
+            "id": "sc-btn-primary-bg-default",
+            "label": "Primary btn bg default",
+            "default": "#054A49"
+          },
+          {
+            "type": "color",
+            "id": "sc-btn-primary-text-default",
+            "label": "Primary btn text default",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color",
+            "id": "sc-btn-primary-bg-hover",
+            "label": "Primary btn bg hover",
+            "default": "#002F2E"
+          },
+          {
+            "type": "color",
+            "id": "sc-btn-primary-text-hover",
+            "label": "Primary btn text hover",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "header",
+            "content": "Secondary button"
+          },
+          {
+            "type": "color",
+            "id": "sc-btn-secondary-bg-default",
+            "label": "Secondary btn bg default",
+            "default": "#000000"
+          },
+          {
+            "type": "color",
+            "id": "sc-btn-secondary-text-default",
+            "label": "Secondary btn text default",
+            "default": "#D9D9D9"
+          },
+          {
+            "type": "color",
+            "id": "sc-btn-secondary-bg-hover",
+            "label": "Secondary btn bg hover",
+            "default": "#054A49"
+          },
+          {
+            "type": "color",
+            "id": "sc-btn-secondary-text-hover",
+            "label": "Secondary btn text hover",
+            "default": "#D9D9D9"
+          },
+          {
+            "type": "header",
+            "content": "Links"
+          },
+          {
+            "type": "color",
+            "id": "sc-link-primary-text-default",
+            "label": "Primary link default",
+            "default": "#054A49"
+          },
+          {
+            "type": "color",
+            "id": "sc-link-primary-text-hover",
+            "label": "Primary link hover",
+            "default": "#0D1E0A"
+          },
+          {
+            "type": "color",
+            "id": "sc-link-secondary-text-default",
+            "label": "Secondary link default",
+            "default": "#0D1E0A"
+          },
+          {
+            "type": "color",
+            "id": "sc-link-secondary-text-hover",
+            "label": "Secondary link hover",
+            "default": "#054A49"
+          }
+        ],
+        "role": {
+          "background": {
+            "solid": "sc-bg-primary",
+            "gradient": "sc-bg-primary-gradient"
+          },
+          "text": "sc-title",
+          "primary_button": "sc-btn-primary-bg-default",
+          "on_primary_button": "sc-btn-primary-bg-hover",
+          "primary_button_border": "sc-btn-primary-bg-default",
+          "secondary_button": "sc-btn-secondary-bg-default",
+          "on_secondary_button": "sc-btn-secondary-bg-hover",
+          "secondary_button_border": "sc-btn-secondary-bg-default",
+          "icons": "sc-title",
+          "links": "sc-link-primary-text-default"
+        }
+      },
+      {
+        "type": "color",
+        "id": "c-blur-overlay",
+        "label": "Blurred overlay",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Accent colors"
+      },
+      {
+        "type": "color",
+        "id": "c-accent-success",
+        "label": "Success",
+        "default": "#004B23"
+      },
+      {
+        "type": "color",
+        "id": "c-accent-warning",
+        "label": "Warning",
+        "default": "#FFAA00"
+      },
+      {
+        "type": "color",
+        "id": "c-accent-error",
+        "label": "Error",
+        "default": "#D62828"
+      }
+    ]
+  },
+  {
+    "name": "ROUNDING",
+    "settings": [
+      {
+        "type": "range",
+        "id": "r-btn-main",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Btn main corner radius",
+        "default": 6
+      },
+      {
+        "type": "range",
+        "id": "r-btn-pill",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Btn pill corner radius",
+        "default": 24
+      },
+      {
+        "type": "range",
+        "id": "r-input",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Input corner radius",
+        "default": 5
+      },
+      {
+        "type": "range",
+        "id": "r-block",
+        "min": 0,
+        "max": 64,
+        "step": 4,
+        "unit": "px",
+        "label": "Block corner radius",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "social_twitter",
+        "label": "Twitter"
+      },
+      {
+        "type": "url",
+        "id": "social_pinterest",
+        "label": "Pinterest"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_vimeo",
+        "label": "Vimeo"
+      },
+      {
+        "type": "url",
+        "id": "social_whatsapp",
+        "label": "WhatsApp"
+      },
+      {
+        "type": "url",
+        "id": "social_tumblr",
+        "label": "Tumblr"
+      },
+      {
+        "type": "url",
+        "id": "social_youtube",
+        "label": "YouTube"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok"
+      },
+      {
+        "type": "url",
+        "id": "social_linkedin",
+        "label": "LinkedIn"
+      },
+      {
+        "type": "url",
+        "id": "social_snapchat",
+        "label": "Snapchat"
+      },
+      {
+        "type": "url",
+        "id": "social_fancy",
+        "label": "Fancy"
+      },
+      {
+        "type": "url",
+        "id": "social_wechat",
+        "label": "WeChat"
+      },
+      {
+        "type": "url",
+        "id": "social_reddit",
+        "label": "Reddit"
+      },
+      {
+        "type": "url",
+        "id": "social_line",
+        "label": "LINE"
+      },
+      {
+        "type": "url",
+        "id": "social_spotify",
+        "label": "Spotify"
+      },
+      {
+        "type": "url",
+        "id": "social_21buttons",
+        "label": "21 Buttons"
+      }
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "section_anchor_id": "SECTION TITLE",
+        "btn_text": "Call Care Navigator",
+        "btn_link_to_tel": ""
+      }
+    }
+  },
+  "order": [
+    "header"
+  ]
+}

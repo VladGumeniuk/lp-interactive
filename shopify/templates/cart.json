@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "main": {
+      "type": "cart",
+      "blocks": {
+        "8f50585a-18ef-42d7-ae90-467b4fd36755": {
+          "type": "product",
+          "settings": {
+            "product": "the-out-of-stock-snowboard",
+            "product_title": "",
+            "product_subtitle": "",
+            "btn_text_product": "Add +",
+            "btn_product": "btn_primary_filled"
+          }
+        },
+        "27735d91-c1fa-414d-b573-9115a7d5a615": {
+          "type": "product",
+          "settings": {
+            "product": "the-multi-managed-snowboard",
+            "product_title": "",
+            "product_subtitle": "",
+            "btn_text_product": "Add +",
+            "btn_product": "btn_primary_filled"
+          }
+        },
+        "a9e141d6-0ee4-43cf-b1f0-2d62cf2561ab": {
+          "type": "product",
+          "settings": {
+            "product": "the-compare-at-price-snowboard",
+            "product_title": "",
+            "product_subtitle": "",
+            "btn_text_product": "Add +",
+            "btn_product": "btn_primary_filled"
+          }
+        },
+        "72a88481-dd11-41a4-824d-4b17546cc0c4": {
+          "type": "product",
+          "settings": {
+            "product": "the-3d-modeled-snowboard",
+            "product_title": "",
+            "product_subtitle": "",
+            "btn_text_product": "Add +",
+            "btn_product": "btn_primary_filled"
+          }
+        }
+      },
+      "block_order": [
+        "8f50585a-18ef-42d7-ae90-467b4fd36755",
+        "27735d91-c1fa-414d-b573-9115a7d5a615",
+        "a9e141d6-0ee4-43cf-b1f0-2d62cf2561ab",
+        "72a88481-dd11-41a4-824d-4b17546cc0c4"
+      ],
+      "settings": {
+        "section_anchor_id": "SECTION TITLE",
+        "pt_mob": 10,
+        "pb_mob": 40,
+        "pt_tab": 30,
+        "pb_tab": 40,
+        "pt_desk": 60,
+        "pb_desk": 40
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

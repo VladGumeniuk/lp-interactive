@@ -1,0 +1,50 @@
+{% assign formatted_initial_value = gift_card.initial_value | money_without_trailing_zeros: gift_card.currency %}
+{% assign formatted_initial_value_stripped = formatted_initial_value | strip_html %}
+
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}" class="min-h-screen overflow-y-scroll">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    {{ 'bundle.js' | asset_url | preload_tag: as: 'script' }}
+
+    {% if settings.favicon %}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
+    {% endif %}
+
+    <!-- Title and description ================================================== -->
+    <title>{{ 'gift_cards.issued.title' | t: value: formatted_initial_value_stripped, shop: shop.name }}</title>
+    <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
+
+    {% if canonical_url != blank %}
+      <link rel="canonical" href="{{ canonical_url }}">
+    {% endif %}
+
+    <!-- google fonts -->
+    {% render 'social-meta-tags' %}
+    {% render 'structured-data' %}
+
+    {% render 'custom-redirects' %}
+    {% render 'js-variables' %}
+    {% render 'css-variables' %}
+    {% render 'fonts' %}
+
+    {{ 'bundle.css' | asset_url | stylesheet_tag: preload: true }}
+
+    <!-- header hook for Shopify plugins -->
+    {{ content_for_header }}
+  </head>
+
+  <body class="flex min-h-screen flex-col font-sans">
+    <main id="app" role="main" class="flex-1">
+      {{ content_for_layout }}
+    </main>
+
+    <!-- webpack bundle -->
+    <script src="{{ 'bundle.js' | asset_url }}" defer="defer"></script>
+  </body>
+</html>

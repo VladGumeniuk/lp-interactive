@@ -1,0 +1,64 @@
+{% liquid
+  assign btn_text = section.settings.btn_text
+  assign btn_url_to_tel = section.settings.btn_url_to_tel
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="min-h-[65px] w-full px-2.5 lg:px-6"
+>
+  <div class="flex min-h-[65px] items-center justify-between">
+    <a class="" href="{{ routes.root_url }}">
+      {% if settings.logo_mobile and settings.logo_desktop != blank %}
+        <span class="sr-only">{{ shop.name }}</span>
+        <img
+          class="block md:hidden"
+          src="{{ settings.logo_mobile | img_url: 'master' }}"
+          alt="{{ shop.name | append: ' logo' }}"
+        >
+        <img
+          class="hidden md:block"
+          src="{{ settings.logo_desktop | img_url: 'master' }}"
+          alt="{{ shop.name | append: ' logo' }}"
+        >
+      {% else %}
+        <span class="text-center uppercase">{{ shop.name }}</span>
+      {% endif %}
+    </a>
+
+    <a
+      href="tel:{{ btn_url_to_tel }}"
+      class="btn border-[1px] border-black lg:border-0"
+    >
+      <span>{{ btn_text }}</span>
+    </a>
+  </div>
+  <div class="bg-yellow-highlight block h-[1px] w-full lg:hidden"></div>
+</div>
+
+{% schema %}
+{
+  "name": "header",
+  "tag": "header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Enter text button",
+      "default": "Call Care Navigator"
+    },
+    {
+      "type": "url",
+      "id": "btn_url_to_tel",
+      "label": "Phone number to call"
+    }
+  ],
+  "presets": [
+    {
+      "name": "header",
+      "category": "Repeatable"
+    }
+  ]
+}
+{% endschema %}

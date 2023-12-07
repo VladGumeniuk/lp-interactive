@@ -1,0 +1,24 @@
+/**
+ * entry file for Tailwind CSS
+ * and other style files
+ */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "_buttons";
+@import "_reset";
+@import "_container";
+@import "_forms";
+@import "_marquee";
+@import "_border";
+
+/*Alpine directive x-cloak https://alpinejs.dev/directives/cloak */
+[x-cloak] { display: none !important; }
+
+@layer base {
+  html *,
+  body * {
+    @apply font-primary;
+  }
+}

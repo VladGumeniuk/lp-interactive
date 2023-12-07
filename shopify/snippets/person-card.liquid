@@ -1,0 +1,14 @@
+<div class="w-full max-w-[120px] overflow-hidden rounded">
+  <img class="w-full object-cover" src="{{ person_image | img_url: 'master' }}" alt="person">
+</div>
+<div class="w-full max-w-[235px]">
+  <h3 class="text-blue text-lg font-light lg:text-3xl">
+    {{ name_person }}
+  </h3>
+  <div class="text-blue mt-2.5 text-[10px] font-light md:mt-4 md:text-xs">
+    {{ description_person }}
+  </div>
+  <div class="ml-auto w-full max-w-[120px]">
+    <img class="w-full object-cover" src="{{ signature_person | img_url: 'master' }}" alt="signature">
+  </div>
+</div>

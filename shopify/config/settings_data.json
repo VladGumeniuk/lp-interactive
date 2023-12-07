@@ -1,0 +1,160 @@
+{
+  "current": {
+    "logo_mobile": "shopify:\/\/shop_images\/logo-peachy.svg",
+    "logo_desktop": "shopify:\/\/shop_images\/wordmark.svg",
+    "pagination_bullet": "shopify:\/\/shop_images\/Radio_Button.svg",
+    "pagination_bullet_active": "shopify:\/\/shop_images\/Vector_44.svg",
+    "social_facebook": "#",
+    "social_twitter": "#",
+    "social_instagram": "#",
+    "social_youtube": "#",
+    "logo_peachy": "shopify:\/\/shop_images\/logo-peachy.svg",
+    "logo_dark": "shopify:\/\/shop_images\/logo_dark.svg",
+    "logo_light": "shopify:\/\/shop_images\/logo-light.svg",
+    "c-newsletter-body": "#ffffff",
+    "c-footer-bg-primary": "#0D1E0A",
+    "c-footer-title": "#FFFFFF",
+    "c-footer-body": "#dad7cd",
+    "sections": {
+      "mobile-menu": {
+        "type": "mobile-menu",
+        "blocks": {
+          "665c7d32-9735-4c48-9096-ed16f167c53d": {
+            "type": "product",
+            "settings": {
+              "menu_item": "Smart devices",
+              "product_1": "the-3d-modeled-snowboard",
+              "product_title_1": "",
+              "product_subtitle_1": "",
+              "product_2": "the-3p-fulfilled-snowboard",
+              "product_title_2": "",
+              "product_subtitle_2": "",
+              "product_3": "the-collection-snowboard-hydrogen",
+              "product_title_3": "",
+              "product_subtitle_3": "",
+              "product_4": "the-collection-snowboard-liquid",
+              "product_title_4": "",
+              "product_subtitle_4": ""
+            }
+          },
+          "f551deea-1470-4e33-a615-670ae609bec0": {
+            "type": "product",
+            "settings": {
+              "menu_item": "how it works",
+              "product_1": "the-out-of-stock-snowboard",
+              "product_title_1": "",
+              "product_subtitle_1": "",
+              "product_2": "the-multi-managed-snowboard",
+              "product_title_2": "",
+              "product_subtitle_2": "",
+              "product_3": "the-multi-location-snowboard",
+              "product_title_3": "",
+              "product_subtitle_3": "",
+              "product_4": "the-inventory-not-tracked-snowboard",
+              "product_title_4": "",
+              "product_subtitle_4": ""
+            }
+          }
+        },
+        "block_order": [
+          "665c7d32-9735-4c48-9096-ed16f167c53d",
+          "f551deea-1470-4e33-a615-670ae609bec0"
+        ],
+        "settings": {
+          "section_anchor_id": "SECTION TITLE",
+          "mobile_menu": "mobile-menu",
+          "mobile_menu_additional": "mobile-menu-additional",
+          "btn_help_url": "",
+          "btn_help_text": "Need help?"
+        }
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "blocks": {
+          "0fcac622-f551-4482-88ac-baae82ec543d": {
+            "type": "product",
+            "settings": {
+              "product": "the-out-of-stock-snowboard",
+              "product_title": "",
+              "product_subtitle": "",
+              "btn_text_product": "Add +",
+              "btn_product": "btn_primary_filled"
+            }
+          },
+          "1daa288c-b3fa-4f0c-bf2f-7229ae24998d": {
+            "type": "product",
+            "settings": {
+              "product": "the-multi-managed-snowboard",
+              "product_title": "",
+              "product_subtitle": "",
+              "btn_text_product": "Add +",
+              "btn_product": "btn_primary_filled"
+            }
+          },
+          "98c13cdc-798b-4fb8-b48f-d6d748930c4a": {
+            "type": "product",
+            "settings": {
+              "product": "the-multi-location-snowboard",
+              "product_title": "",
+              "product_subtitle": "",
+              "btn_text_product": "Add +",
+              "btn_product": "btn_primary_filled"
+            }
+          },
+          "ab302f59-e9bf-4624-9deb-550cd711d1ef": {
+            "type": "product",
+            "settings": {
+              "product": "the-complete-snowboard",
+              "product_title": "",
+              "product_subtitle": "",
+              "btn_text_product": "Add +",
+              "btn_product": "btn_primary_filled"
+            }
+          }
+        },
+        "block_order": [
+          "0fcac622-f551-4482-88ac-baae82ec543d",
+          "1daa288c-b3fa-4f0c-bf2f-7229ae24998d",
+          "98c13cdc-798b-4fb8-b48f-d6d748930c4a",
+          "ab302f59-e9bf-4624-9deb-550cd711d1ef"
+        ],
+        "settings": {
+          "section_anchor_id": "SECTION TITLE",
+          "sc-bg-secondary": "#e7e2d9",
+          "title_cart": "Shopping Cart",
+          "title_slider": "Trending this month",
+          "btn": "btn_primary_filled"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
+    "color_schemes": {
+      "schema-1": {
+        "settings": {
+          "sc-title": "#151515",
+          "sc-subtitle": "#054a49",
+          "sc-body-primary": "#52525b",
+          "sc-body-secondary": "#86868c",
+          "sc-bg-primary": "#ffffff",
+          "sc-bg-primary-gradient": "",
+          "sc-bg-secondary": "#f6f6f6",
+          "sc-bg-secondary-gradient": "",
+          "sc-btn-primary-bg-default": "#054a49",
+          "sc-btn-primary-text-default": "#ffffff",
+          "sc-btn-primary-bg-hover": "#002f2e",
+          "sc-btn-primary-text-hover": "#ffffff",
+          "sc-btn-secondary-bg-default": "#000000",
+          "sc-btn-secondary-text-default": "#d9d9d9",
+          "sc-btn-secondary-bg-hover": "#054a49",
+          "sc-btn-secondary-text-hover": "#d9d9d9",
+          "sc-link-primary-text-default": "#054a49",
+          "sc-link-primary-text-hover": "#0d1e0a",
+          "sc-link-secondary-text-default": "#0d1e0a",
+          "sc-link-secondary-text-hover": "#054a49"
+        }
+      }
+    }
+  }
+}

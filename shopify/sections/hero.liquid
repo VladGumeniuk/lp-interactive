@@ -1,0 +1,156 @@
+{% liquid
+  assign title = section.settings.title
+  assign name = section.settings.name
+  assign text = section.settings.text
+
+  assign btn_link = section.settings.btn_link
+  assign btn_text = section.settings.btn_text
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+<div
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {% if title or name != blank %}
+      <h1 class="text-blue inline-flex flex-wrap text-[69px] font-light leading-[72px]">
+        {{ title }}
+        <div class="relative w-fit">
+          {{ name }}
+          <div class="bg-yellow-highlight absolute bottom-0 left-0 -z-10 h-[10px] w-full"></div>
+        </div>
+      </h1>
+    {% endif %}
+
+    {% if text != blank %}
+      <div class="mt-3 md:mt-8">
+        <div class="text-blue text-lg">
+          {{ text }}
+          <!-- DESKTOP LINK -->
+          <a
+            class="text-blue hidden text-lg font-bold md:inline-block"
+            href="{{ btn_link }}"
+          >
+            {{ btn_text }}
+          </a>
+          <!-- DESKTOP LINK END -->
+        </div>
+        <!-- MOBILE LINK -->
+        <a
+          class="text-blue mt-4 inline-block text-lg font-bold md:hidden"
+          href="{{ btn_link }}"
+        >
+          {{ btn_text }}
+        </a>
+        <!-- MOBILE LINK END -->
+      </div>
+    {% endif %}
+    <div class="border-blue mt-10 block border-b-[2px] border-dashed lg:hidden"></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section text settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Hi there, "
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "label": "Section name",
+      "default": "Jane!"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Section text"
+    },
+    {
+      "type": "header",
+      "content": "Link settings"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Section button text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Section button link"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 150
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "category": "Repeatable"
+    }
+  ]
+}
+{% endschema %}

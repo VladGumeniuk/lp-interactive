@@ -1,0 +1,99 @@
+<style>
+  :root {
+    {% for scheme in settings.color_schemes -%}
+      {% if forloop.first -%}
+      /* SCHEMA VARIABLES */
+      /* TYPOGRAPHY */
+      --sc-title: {{ scheme.settings.sc-title.rgb }};
+      --sc-subtitle: {{ scheme.settings.sc-subtitle.rgb }};
+      --sc-body-primary: {{ scheme.settings.sc-body-primary.rgb }};
+      --sc-body-secondary: {{ scheme.settings.sc-body-secondary.rgb }};
+      /* BACKGROUNDS */
+      --sc-bg-primary: {{ scheme.settings.sc-bg-primary.rgb }};
+      {% if scheme.settings.sc-bg-primary-gradient != empty %}
+      --sc-bg-primary-gradient: {{ scheme.settings.sc-bg-primary-gradient }};
+      {% endif %}
+      --sc-bg-secondary: {{ scheme.settings.sc-bg-secondary.rgb }};
+      {% if scheme.settings.sc-bg-secondary-gradient != empty %}
+      --sc-bg-secondary-gradient: {{ scheme.settings.sc-bg-secondary-gradient }};
+      {% endif %}
+      /* BUTTONS */
+      --sc-btn-primary-bg-default: {{ scheme.settings.sc-btn-primary-bg-default.rgb }};
+      --sc-btn-primary-text-default: {{ scheme.settings.sc-btn-primary-text-default.rgb }};
+      --sc-btn-primary-bg-hover: {{ scheme.settings.sc-btn-primary-bg-hover.rgb }};
+      --sc-btn-primary-text-hover: {{ scheme.settings.sc-btn-primary-text-hover.rgb }};
+      --sc-btn-secondary-bg-default: {{ scheme.settings.sc-btn-secondary-bg-default.rgb }};
+      --sc-btn-secondary-text-default: {{ scheme.settings.sc-btn-secondary-text-default.rgb }};
+      --sc-btn-secondary-bg-hover: {{ scheme.settings.sc-btn-secondary-bg-hover.rgb }};
+      --sc-btn-secondary-text-hover: {{ scheme.settings.sc-btn-secondary-text-hover.rgb }};
+      --sc-link-primary-text-default: {{ scheme.settings.sc-link-primary-text-default.rgb }};
+      --sc-link-primary-text-hover: {{ scheme.settings.sc-link-primary-text-hover.rgb }};
+      --sc-link-secondary-text-default: {{ scheme.settings.sc-link-secondary-text-default.rgb }};
+      --sc-link-secondary-text-hover: {{ scheme.settings.sc-link-secondary-text-hover.rgb }};
+      {%- endif %}
+    {% endfor %}
+
+    /* OVERLAY */
+    --c-blur-overlay: {{ settings.c-blur-overlay.rgb }};
+
+    /* ACCENT COLORS */
+    --c-accent-success: {{ settings.c-accent-success.rgb }};
+    --c-accent-warning: {{ settings.c-accent-warning.rgb }};
+    --c-accent-error: {{ settings.c-accent-error.rgb }};
+
+    /* BORDER RADIUS */
+    --r-btn-main: {{ settings.r-btn-main |  append: 'px' }};
+    --r-btn-pill: {{ settings.r-btn-pill | append: 'px' }};
+    --r-input: {{ settings.r-input | append: 'px' }};
+    --r-block: {{ settings.r-block | append: 'px' }};
+
+    /* OTHER */
+    --cursor-close: url({{ 'cursor-close.svg' | asset_url }});
+  }
+
+  {% for scheme in settings.color_schemes -%}
+  .color-scheme-{{ scheme.id }} {
+    /* SCHEMA VARIABLES */
+    /* TYPOGRAPHY */
+    --sc-title: {{ scheme.settings.sc-title.rgb }};
+    --sc-subtitle: {{ scheme.settings.sc-subtitle.rgb }};
+    --sc-body-primary: {{ scheme.settings.sc-body-primary.rgb }};
+    --sc-body-secondary: {{ scheme.settings.sc-body-secondary.rgb }};
+    /* BACKGROUNDS */
+    --sc-bg-primary: {{ scheme.settings.sc-bg-primary.rgb }};
+    {% if scheme.settings.sc-bg-primary-gradient != empty %}
+      --sc-bg-primary-gradient: {{ scheme.settings.sc-bg-primary-gradient }};
+    {% endif %}
+      --sc-bg-secondary: {{ scheme.settings.sc-bg-secondary.rgb }};
+    {% if scheme.settings.sc-bg-secondary-gradient != empty %}
+      --sc-bg-secondary-gradient: {{ scheme.settings.sc-bg-secondary-gradient }};
+    {% endif %}
+    /* BUTTONS */
+    --sc-btn-primary-bg-default: {{ scheme.settings.sc-btn-primary-bg-default.rgb }};
+    --sc-btn-primary-text-default: {{ scheme.settings.sc-btn-primary-text-default.rgb }};
+    --sc-btn-primary-bg-hover: {{ scheme.settings.sc-btn-primary-bg-hover.rgb }};
+    --sc-btn-primary-text-hover: {{ scheme.settings.sc-btn-primary-text-hover.rgb }};
+    --sc-btn-secondary-bg-default: {{ scheme.settings.sc-btn-secondary-bg-default.rgb }};
+    --sc-btn-secondary-text-default: {{ scheme.settings.sc-btn-secondary-text-default.rgb }};
+    --sc-btn-secondary-bg-hover: {{ scheme.settings.sc-btn-secondary-bg-hover.rgb }};
+    --sc-btn-secondary-text-hover: {{ scheme.settings.sc-btn-secondary-text-hover.rgb }};
+    --sc-link-primary-text-default: {{ scheme.settings.sc-link-primary-text-default.rgb }};
+    --sc-link-primary-text-hover: {{ scheme.settings.sc-link-primary-text-hover.rgb }};
+    --sc-link-secondary-text-default: {{ scheme.settings.sc-link-secondary-text-default.rgb }};
+    --sc-link-secondary-text-hover: {{ scheme.settings.sc-link-secondary-text-hover.rgb }};
+  }
+  {% endfor %}
+
+  .shop-logo-short {
+    max-width: {{ settings.logo_max_w_short | append: 'px' }};
+  }
+
+  .shop-logo {
+    max-width: {{ settings.logo_max_w_mobile | append: 'px' }};
+  }
+  @media (min-width: 744px) {
+    .shop-logo {
+      max-width: {{ settings.logo_max_w_desktop | append: 'px' }};
+    }
+  }
+</style>

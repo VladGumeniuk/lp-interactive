@@ -1,0 +1,112 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "section_anchor_id": "FOOTER",
+        "pt_mob": 60,
+        "pb_mob": 60,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 60,
+        "pb_desk": 60,
+        "title": "Join our newsletter pack for pet parenting tips, product updates, and more.",
+        "subtitle": "Stay in the know",
+        "input_subtext": "Helper text goes here.",
+        "sc-title": "#ffffff",
+        "sc-subtitle": "#ffffff",
+        "sc-body-primary": "#ffffff",
+        "sc-bg-primary": "#0d1e0a",
+        "sc-bg-secondary": "#ffffff"
+      }
+    },
+    "16d850ca-adeb-4914-a919-099fc5b56728": {
+      "type": "footer-with-icon",
+      "blocks": {
+        "fcef4780-2678-4906-8bee-6af1bd2c79a1": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/location.svg",
+            "icon_title": "Baked in Boston",
+            "icon_text": "<p>Products designed and developed in New York City.<\/p>"
+          }
+        },
+        "802c97f1-ba2e-48aa-bc7a-9f6df268ec65": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/place.svg",
+            "icon_title": "Free Shipping",
+            "icon_text": "<p>Free worldwide shipping on all orders of $99<\/p>"
+          }
+        },
+        "f1ce36e3-135c-4dcd-8993-68215c0418f3": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/help.svg",
+            "icon_title": "Support",
+            "icon_text": "<p>Our support team is available 24\/7<\/p>"
+          }
+        },
+        "4df88e04-7705-45b1-8d87-22724b4814c9": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/payment.svg",
+            "icon_title": "Secure Payment",
+            "icon_text": "<p>All payments are processed securely<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "fcef4780-2678-4906-8bee-6af1bd2c79a1",
+        "802c97f1-ba2e-48aa-bc7a-9f6df268ec65",
+        "f1ce36e3-135c-4dcd-8993-68215c0418f3",
+        "4df88e04-7705-45b1-8d87-22724b4814c9"
+      ],
+      "settings": {
+        "section_anchor_id": "FOOTER",
+        "pt_mob": 50,
+        "pb_mob": 20,
+        "pt_tab": 50,
+        "pb_tab": 20,
+        "pt_desk": 50,
+        "pb_desk": 50,
+        "sc-title": "#ffffff",
+        "sc-subtitle": "#ffffff",
+        "sc-body-primary": "#ffffff",
+        "sc-bg-primary": "#0d1e0a",
+        "sc-bg-secondary": "#ffffff"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "footer_layout": "layout_footer_with_text",
+        "section_anchor_id": "FOOTER",
+        "input_text": "Sign up for news, updates & 10% off your first order.",
+        "contact_text": "<p>We're here 10am - 6pm EST <\/p><p>Monday - Saturday <\/p><p>1-855-999-0471<\/p>",
+        "text_got_questions": "Got Questions?",
+        "link_got_questions": "",
+        "footer_linklist": "footer",
+        "copyright_text": "© 2023 Binaery.",
+        "copyright_linklist": "copyright-link",
+        "pt_mob": 60,
+        "pb_mob": 20,
+        "pt_tab": 60,
+        "pb_tab": 20,
+        "pt_desk": 60,
+        "pb_desk": 20,
+        "sc-title": "#ffffff",
+        "sc-subtitle": "#ffffff",
+        "sc-body-primary": "#ffffff",
+        "sc-bg-primary": "#0d1e0a"
+      }
+    }
+  },
+  "order": [
+    "newsletter",
+    "16d850ca-adeb-4914-a919-099fc5b56728",
+    "footer"
+  ]
+}

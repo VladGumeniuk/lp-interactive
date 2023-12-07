@@ -1,0 +1,518 @@
+{% liquid
+  assign title = section.settings.title
+  assign subtitle = section.settings.subtitle
+
+  assign results_blocks = section.blocks | where: 'type', 'results'
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+<style>
+  [data-section-id='{{ section.id }}'] .swiper-pagination-bullets {
+    width: fit-content;
+  }
+  [data-section-id='{{ section.id }}']
+    .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 8px;
+  }
+  [data-section-id='{{ section.id }}'] .swiper-pagination-bullet {
+    opacity: 1;
+    border: 2px solid #fff;
+  }
+
+  [data-section-id='{{ section.id }}'] .swiper-pagination-bullet-active {
+    background: url("{{ settings.pagination_bullet_active | img_url: 'master' }}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  [data-section-id='{{ section.id }}'] .list-dashed:after {
+    content: '';
+    display: block;
+    margin: 0 20px;
+    border-bottom: 2px dashed #000000;
+  }
+
+  [data-section-id='{{ section.id }}'] .list-dashed:last-child:after {
+    display: none;
+  }
+</style>
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+<div
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {% if title != blank %}
+      <h2 class="text-blue relative w-fit text-[46px] font-light leading-[77px] lg:text-[57px] lg:leading-[94px]">
+        {{ title }}
+        <div class="bg-yellow-highlight absolute bottom-1 left-0 -z-10 h-6 w-full"></div>
+      </h2>
+    {% endif %}
+    {% if subtitle != blank %}
+      <h3 class="text-blue mt-5 text-lg lg:mt-6 lg:text-xl">
+        {{ subtitle }}
+      </h3>
+    {% endif %}
+
+    <ul
+      x-data="{accordion: 0 }"
+      class="border-blue mx-auto mt-10 max-w-[945px] rounded-[8px] border-2"
+    >
+      {% for block in results_blocks %}
+        {% liquid
+          assign title_block = block.settings.title_block
+          assign text_block = block.settings.text_block
+
+          assign accordion_title = block.settings.accordion_title
+          assign accordion_text = block.settings.accordion_text
+
+          assign accordion_title_for_links = block.settings.accordion_title_for_links
+          assign accordion_linklist = block.settings.accordion_linklist
+
+          assign accordion_btn_url_1 = block.settings.accordion_btn_url_1
+          assign accordion_btn_text_1 = block.settings.accordion_btn_text_1
+          assign accordion_btn_url_2 = block.settings.accordion_btn_url_2
+          assign accordion_btn_text_2 = block.settings.accordion_btn_text_2
+
+          assign accordion_title_block_slider = block.settings.accordion_title_block_slider
+          assign accordion_text_block_slider = block.settings.accordion_text_block_slider
+        %}
+        <li
+          class="list-dashed"
+        >
+          <div
+            @click="accordion === {{ forloop.index }} ? accordion = null : accordion = {{ forloop.index }}"
+            :class="{'bg-blue text-white' : accordion === {{ forloop.index }}}"
+            class="text-blue px-4.5 flex cursor-pointer items-center justify-between py-5"
+          >
+            <div class="flex items-center space-x-5">
+              <div class="bg-yellow-highlight flex h-[26px] w-[26px] items-center justify-center rounded-[50%]">
+                <span class="text-blue text-xl font-medium">
+                  {{ forloop.index }}
+                </span>
+              </div>
+              <h3 class="text-lg font-medium">
+                {{ title_block }}
+              </h3>
+            </div>
+
+            <button type="button">
+              {% render 'icon', name: 'accordion' %}
+            </button>
+          </div>
+
+          <div
+            :class="{'hidden' : accordion === {{ forloop.index }}}"
+            class="text-blue ml-15 text-xs"
+          >
+            {{ text_block }}
+            <button
+              type="button"
+              @click="accordion === {{ forloop.index }} ? accordion = null : accordion = {{ forloop.index }}"
+              class="text-blue mb-7.5 mt-4 text-xs font-bold"
+            >
+              Click the arrows to learn more
+            </button>
+          </div>
+
+          <div
+            x-show="accordion === {{ forloop.index }}"
+            x-collapse
+          >
+            <ul class="pt-7.5">
+              <li class="lg:px-22 px-5">
+                <h3 class="text-blue text-lg font-bold">
+                  {{ accordion_title }}
+                </h3>
+              </li>
+
+              <li class="text-blue lg:px-22 mt-2 px-5 text-xs lg:text-base">
+                {{ accordion_text }}
+              </li>
+
+              <li class="mt-7.5 lg:px-22 px-5 lg:mt-20">
+                <h3 class="text-blue text-sm font-bold uppercase lg:text-lg">
+                  {{ accordion_title_for_links }}
+                </h3>
+              </li>
+
+              <li class="lg:px-22 px-5">
+                <ul class="lg:mt-7.5 mt-2.5 flex flex-col space-y-3.5 px-1 lg:space-y-6 lg:px-3">
+                  {% for link in accordion_linklist.links %}
+                    <li class="flex space-x-2">
+                      <div class="mt-1">
+                        {% render 'icon', name: 'arrow', class: 'md:w-[22px] md:h-[22px] fill-blue' %}
+                      </div>
+                      <div>
+                        <a
+                          class="text-blue text-xs lg:text-xl"
+                          href="{{ link.url }}"
+                        >
+                          {{ link.title }}
+                        </a>
+                      </div>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </li>
+
+              <li class="mt-7.5 lg:mt-15 lg:px-22 flex w-full flex-col space-y-3 px-5 md:flex-row md:justify-center md:space-x-3 md:space-y-0">
+                {% if accordion_btn_text_1 != blank %}
+                  <a
+                    class="btn inline-flex w-full justify-center md:w-fit"
+                    href="{{ accordion_btn_text_1 }}"
+                  >
+                    {{ accordion_btn_text_1 }}
+                  </a>
+                {% endif %}
+
+                {% if accordion_btn_text_2 != blank %}
+                  <a
+                    class="btn inline-flex w-full justify-center md:w-fit"
+                    href="tel:{{ accordion_btn_text_2 }}"
+                  >
+                    {{ accordion_btn_text_2 }}
+                  </a>
+                {% endif %}
+              </li>
+
+              <li class="pb-7.5 bg-yellow-highlight/30 mt-10 rounded-[4px] lg:mt-16">
+                <div class="lg:px-12.5 px-5 py-6">
+                  <h3 class="text-blue text-lg font-bold">
+                    {{ accordion_title_block_slider }}
+                  </h3>
+                  <div class="text-blue mt-1 text-sm">
+                    {{ accordion_text_block_slider }}
+                  </div>
+                </div>
+
+                <div
+                  x-ignore
+                  ax-load
+                  x-data="swiperSlider('{{section.id}}', 'accordion-slider')"
+                  class="swiper px-7.5 mx-auto max-w-[662px]"
+                >
+                  <div class="swiper-wrapper">
+                    {% for i in (1..5) %}
+                      {% liquid
+                        assign image_key = 'slider_image_' | append: i
+                        assign name_key = 'slider_name_' | append: i
+                        assign text_key = 'slider_text_' | append: i
+
+                        assign image = block.settings[image_key]
+                        assign title = block.settings[name_key]
+                        assign text = block.settings[text_key]
+                      %}
+                      {% if block.settings[image_key] != blank
+                        and block.settings[name_key] != blank
+                        and block.settings[text_key] != blank
+                      %}
+                        <div class="swiper-slide flex flex-col text-center">
+                          <div class="bg-blue rounded-r-block-title relative z-10 -mb-2.5 inline-flex w-fit py-2 px-4 md:hidden">
+                            <h3 class="text-xl font-light text-white">{{ title }}</h3>
+                          </div>
+                          <div class="bg-blue items-center rounded-[3px] md:flex md:bg-transparent">
+                            <div
+                              class="-translate-x-[10px] -translate-y-[10px] overflow-hidden rounded-[3px] md:max-w-[245px] md:-translate-y-0 md:-translate-x-0"
+                            >
+                              {{
+                                image
+                                | image_url: width: 200
+                                | image_tag:
+                                  loading: 'lazy',
+                                  alt: 'person',
+                                  class: 'object-contain object-center w-full h-full'
+                              }}
+                            </div>
+
+                            <div class="bg-blue flex flex-col rounded-r-[3px] px-6 pt-2 md:my-5 md:pt-6 md:text-left">
+                              <h3 class="hidden text-xl font-light text-white md:block">
+                                {{ title }}
+                              </h3>
+                              <div class="flex-1 text-base text-white md:p-3 md:text-sm">
+                                {{ text }}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                  <div class="py-4.5 flex items-end justify-center space-x-4">
+                    <div class="swiper-btn-prev rotate-180 cursor-pointer">
+                      {% render 'icon', name: 'arrow', class: 'fill-white' %}
+                    </div>
+                    <div class="swiper-pagination !static"></div>
+                    <div class="swiper-btn-next cursor-pointer">
+                      {% render 'icon', name: 'arrow', class: 'fill-white' %}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Your results",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Your results:"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section subtitle",
+      "default": "Select a diagnosis to learn about our recommendations."
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "results",
+      "name": "Results block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Block settings"
+        },
+        {
+          "type": "text",
+          "id": "title_block",
+          "label": "Block title"
+        },
+        {
+          "type": "richtext",
+          "id": "text_block",
+          "label": "Block text"
+        },
+        {
+          "type": "header",
+          "content": "Accordion settings"
+        },
+        {
+          "type": "text",
+          "id": "accordion_title",
+          "label": "Accordion title"
+        },
+        {
+          "type": "richtext",
+          "id": "accordion_text",
+          "label": "Accordion text"
+        },
+        {
+          "type": "header",
+          "content": "Accordion links settings"
+        },
+        {
+          "type": "text",
+          "id": "accordion_title_for_links",
+          "label": "Accordion title for links",
+          "default": "OUR RECOMMENDATIONS"
+        },
+        {
+          "type": "link_list",
+          "id": "accordion_linklist",
+          "label": "Accordion linklist"
+        },
+        {
+          "type": "text",
+          "id": "accordion_btn_text_1",
+          "label": "Accordion button text 1"
+        },
+        {
+          "type": "url",
+          "id": "accordion_btn_url_1",
+          "label": "accordion button url 1"
+        },
+        {
+          "type": "text",
+          "id": "accordion_btn_text_2",
+          "label": "Accordion button text 2"
+        },
+        {
+          "type": "url",
+          "id": "accordion_btn_url_2",
+          "label": "accordion button url 2"
+        },
+        {
+          "type": "text",
+          "id": "accordion_title_block_slider",
+          "label": "Accordion title block slider"
+        },
+        {
+          "type": "richtext",
+          "id": "accordion_text_block_slider",
+          "label": "Accordion text block slider"
+        },
+        {
+          "type": "header",
+          "content": "Item 1 slider"
+        },
+        {
+          "type": "text",
+          "id": "slider_name_1",
+          "label": "slider name 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_image_1",
+          "label": "Slider image 1"
+        },
+        {
+          "type": "richtext",
+          "id": "slider_text_1",
+          "label": "Slider text 1"
+        },
+        {
+          "type": "header",
+          "content": "Item 2 slider"
+        },
+        {
+          "type": "text",
+          "id": "slider_name_2",
+          "label": "slider name 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_image_2",
+          "label": "Slider image 2"
+        },
+        {
+          "type": "richtext",
+          "id": "slider_text_2",
+          "label": "Slider text 2"
+        },
+        {
+          "type": "header",
+          "content": "Item 3 slider"
+        },
+        {
+          "type": "text",
+          "id": "slider_name_3",
+          "label": "slider name 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_image_3",
+          "label": "Slider image 3"
+        },
+        {
+          "type": "richtext",
+          "id": "slider_text_3",
+          "label": "Slider text 3"
+        },
+        {
+          "type": "header",
+          "content": "Item 4 slider"
+        },
+        {
+          "type": "text",
+          "id": "slider_name_4",
+          "label": "slider name 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_image_4",
+          "label": "Slider image 4"
+        },
+        {
+          "type": "richtext",
+          "id": "slider_text_4",
+          "label": "Slider text 4"
+        },
+        {
+          "type": "header",
+          "content": "Item 5 slider"
+        },
+        {
+          "type": "text",
+          "id": "slider_name_5",
+          "label": "slider name 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_image_5",
+          "label": "Slider image 5"
+        },
+        {
+          "type": "richtext",
+          "id": "slider_text_5",
+          "label": "Slider text 5"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Your results",
+      "category": "Repeatable"
+    }
+  ]
+}
+{% endschema %}
