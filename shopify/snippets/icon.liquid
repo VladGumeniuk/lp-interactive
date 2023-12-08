@@ -196,4 +196,16 @@
         </clipPath>
       </defs>
     </svg>
+
+  {% when 'arrow-dropdown' %}
+    <svg
+      :class="show ? 'rotate-180 duration-200' : 'rotate-0 duration-200'"
+      xmlns="http://www.w3.org/2000/svg"
+      width="19"
+      height="14"
+      viewBox="0 0 19 14"
+      fill="none"
+    >
+      <path d="M10.1147 12.8618C9.69334 13.4092 8.86787 13.4092 8.44651 12.8618L0.557687 2.6139C0.0248557 1.92174 0.518283 0.919199 1.39179 0.919199L17.1694 0.919201C18.0429 0.919201 18.5364 1.92174 18.0035 2.6139L10.1147 12.8618Z" fill="#2A4E8B"/>
+    </svg>
 {% endcase %}

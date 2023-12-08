@@ -1,0 +1,206 @@
+{% liquid
+  assign title = section.settings.title
+
+  assign btn_text = section.settings.btn_text
+  assign btn_url = section.settings.btn_url
+
+  assign blocks = section.blocks | where: 'type', 'block'
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+<div
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {% if title != blank %}
+      <h2 class="text-blue relative w-fit text-[51px] font-light leading-[53px]">
+        {{ title }}
+        <div class="bg-yellow-highlight absolute -bottom-2 left-0 -z-10 h-6 w-full"></div>
+      </h2>
+    {% endif %}
+
+    <!-- MOBILE START -->
+    <ul class="bg-green px-8.5 pb-8.5 pt-9.5 mt-6 block rounded-[5px] lg:hidden">
+      {% for block in blocks %}
+        {% liquid
+          assign btn_url_block = block.settings.btn_url_block
+          assign btn_text_block = block.settings.btn_text_block
+        %}
+        <li class="mt-7.5 flex items-center space-x-3 first:mt-0">
+          {% render 'icon', name: 'arrow', class: 'fill-white', size: 'md' %}
+          <div>
+            <a
+              class="text-sm text-white"
+              href="{{ btn_url_block }}"
+            >
+              {{ btn_text_block }}
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+
+      <li class="mt-10 text-center">
+        <p class="mb-1.5 text-lg font-light text-white">
+          Questions? <span class="font-medium">We’re here for you</span>
+        </p>
+        <a
+          class="btn inline-flex w-full justify-center"
+          href="tel:{{ btn_url }}"
+        >
+          {{ btn_text }}
+        </a>
+      </li>
+    </ul>
+    <!-- MOBILE END -->
+
+    <!-- DESKTOP START -->
+    <ul class="mt-11 mb-14 hidden grid-cols-4 gap-7 lg:grid">
+      {% for block in blocks %}
+        {% liquid
+          assign title_step = block.settings.title_step
+          assign btn_url_block = block.settings.btn_url_block
+          assign btn_text_block = block.settings.btn_text_block
+        %}
+        <li class="">
+          <div class="bg-dark-green w-fit rounded-t-[4px] px-2.5 py-3 text-xl text-white">Step {{ forloop.index }}</div>
+          <div class="border-dark-green px-5.5 min-h-[225px] border-[1px] pt-8 pb-2">
+            <h4 class="text-blue smd:text-[28px] mb-8 text-2xl font-light">
+              {{ title_step }}
+            </h4>
+
+            <a
+              class="text-blue text-lg font-light"
+              href="{{ btn_url_block }}"
+            >
+              {{ btn_text_block }}
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="text-center">
+      <p class="text-blue mb-1.5 text-lg font-light">Questions? <span class="font-medium">We’re here for you</span></p>
+      <a
+        class="btn inline-flex justify-center"
+        href="tel:{{ btn_url }}"
+      >
+        {{ btn_text }}
+      </a>
+    </div>
+    <!-- DESKTOP END -->
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Next Steps",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text",
+      "default": "Call your Care Navigator"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Step block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title_step",
+          "label": "Title step block"
+        },
+        {
+          "type": "text",
+          "id": "btn_text_block",
+          "label": "Button text block"
+        },
+        {
+          "type": "url",
+          "id": "btn_url_block",
+          "label": "Button url block"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Next Steps",
+      "category": "Repeatable"
+    }
+  ]
+}
+{% endschema %}

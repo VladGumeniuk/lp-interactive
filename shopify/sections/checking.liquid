@@ -1,0 +1,273 @@
+{% liquid
+  assign title = section.settings.title
+  assign text = section.settings.text
+  assign title_2 = section.settings.title_2
+
+  assign blocks = section.blocks | where: 'type', 'block'
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+<style>
+  [data-section-id='{{ section.id }}'] .list-border {
+    border: 2px solid #2a4e8b;
+    border-top: 0;
+  }
+  [data-section-id='{{ section.id }}'] .list-border:last-child {
+    border-radius: 0 0 10px 10px;
+  }
+</style>
+
+<div
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {% if title != blank %}
+      <h2 class="text-blue relative w-fit text-[58px] font-light leading-[60px]">
+        {{ title }}
+        <div class="bg-yellow-highlight absolute -bottom-2 left-0 -z-10 h-6 w-full"></div>
+      </h2>
+    {% endif %}
+
+    {% if text != blank %}
+      <div class="text-blue mt-5 text-lg lg:text-[22px]">
+        {{ text }}
+      </div>
+    {% endif %}
+
+    <div class="mx-auto mt-14 max-w-[778px]">
+      {% if title_2 != blank %}
+        <h3 class="text-blue text-[43px] font-light leading-[34px]">
+          {{ title_2 }}
+        </h3>
+      {% endif %}
+
+      {% for block in blocks %}
+        {% assign title_block = block.settings.title_block %}
+        {% if forloop.index == 1 %}
+          <div
+            class="mt-4"
+            x-data="{id: 1, name: '{{ title_block }}', show: false }"
+          >
+            <div class="relative w-full">
+              <div
+                :class="show ? 'rounded-t-[11px]' : 'rounded-[11px]'"
+                class="border-blue px-5.5 relative z-10 flex h-[70px] w-full cursor-pointer items-center justify-between border-[2px] bg-white py-3.5 duration-300"
+                @click="show = !show"
+              >
+                <span x-text="name" class="text-blue text-[34px] "></span>
+                {% render 'icon', name: 'arrow-dropdown' %}
+              </div>
+
+              <ul
+                class="absolute top-[70px] left-0 z-10 w-full"
+                x-show="show"
+                x-collapse
+              >
+                {% for block in blocks %}
+                  {% assign name_dropdown = block.settings.name_dropdown %}
+                  <li
+                    class="px-5.5 text-blue list-border w-full cursor-pointer bg-white py-3.5 text-[34px]"
+                    @click="show = !show, name = '{{ name_dropdown }}', id = {{ forloop.index }}"
+                  >
+                    {{ name_dropdown }}
+                  </li>
+                {% endfor %}
+              </ul>
+
+              <ul class="mt-10 md:-mt-4">
+                {% for block in blocks %}
+                  {% liquid
+                    assign bg_color = block.settings.bg_color
+
+                    assign title_block = block.settings.title_block
+                    assign text_block = block.settings.text_block
+
+                    assign btn_text_block = block.settings.btn_text_block
+                    assign btn_url_block = block.settings.btn_url_block
+                    assign btn_text_block_2 = block.settings.btn_text_block_2
+                    assign btn_url_block_2 = block.settings.btn_url_block_2
+                  %}
+                  <li
+                    :class="{ 'hidden' : id !== {{ forloop.index }} }"
+                    style="background-color: {{ bg_color }}"
+                    class="flex min-h-[403px] flex-col rounded-[11px] px-4 py-6 md:min-h-[300px] md:py-11 md:px-16"
+                  >
+                    <h4 class="text-[43px] font-light text-white">
+                      {{ title_block }}
+                    </h4>
+                    <div class="flex-1 text-lg text-white md:text-2xl">
+                      {{ text_block }}
+                    </div>
+                    <div class="justify-center space-y-2 md:flex md:space-x-5 md:space-y-0">
+                      <a
+                        class="btn flex justify-center md:w-full md:max-w-[278px]"
+                        href="tel:{{ btn_url_block }}"
+                      >
+                        {{ btn_text_block }}
+                      </a>
+
+                      <a
+                        class="btn flex justify-center md:w-full md:max-w-[278px]"
+                        href="{{ btn_url_block_2 }}"
+                      >
+                        {{ btn_text_block_2 }}
+                      </a>
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Checking",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Checking in"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Section text"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Section title 2",
+      "default": "I’m feeling..."
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Checking block",
+      "settings": [
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background color block",
+          "default": "#06A455"
+        },
+        {
+          "type": "header",
+          "content": "Dropdown settings"
+        },
+        {
+          "type": "text",
+          "id": "name_dropdown",
+          "label": "Name in dropdown"
+        },
+        {
+          "type": "header",
+          "content": "Is open block settings"
+        },
+        {
+          "type": "text",
+          "id": "title_block",
+          "label": "Title block",
+          "default": "Great!!"
+        },
+        {
+          "type": "richtext",
+          "id": "text_block",
+          "label": "Text block"
+        },
+        {
+          "type": "text",
+          "id": "btn_text_block",
+          "label": "Button text block",
+          "default": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "btn_url_block",
+          "label": "Button url block"
+        },
+        {
+          "type": "text",
+          "id": "btn_text_block_2",
+          "label": "Button text block 2",
+          "default": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "btn_url_block_2",
+          "label": "Button url block 2"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Checking",
+      "category": "Repeatable"
+    }
+  ]
+}
+{% endschema %}

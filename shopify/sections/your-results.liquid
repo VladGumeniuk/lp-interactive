@@ -249,20 +249,20 @@
                               <div class="flex-1 text-base text-white md:p-3 md:text-sm">
                                 {{ text }}
                               </div>
+                              <div class="py-4.5 flex items-end justify-center space-x-4">
+                                <div class="swiper-btn-prev rotate-180 cursor-pointer">
+                                  {% render 'icon', name: 'arrow', class: 'fill-white' %}
+                                </div>
+                                <div class="swiper-pagination !static"></div>
+                                <div class="swiper-btn-next cursor-pointer">
+                                  {% render 'icon', name: 'arrow', class: 'fill-white' %}
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       {% endif %}
                     {% endfor %}
-                  </div>
-                  <div class="py-4.5 flex items-end justify-center space-x-4">
-                    <div class="swiper-btn-prev rotate-180 cursor-pointer">
-                      {% render 'icon', name: 'arrow', class: 'fill-white' %}
-                    </div>
-                    <div class="swiper-pagination !static"></div>
-                    <div class="swiper-btn-next cursor-pointer">
-                      {% render 'icon', name: 'arrow', class: 'fill-white' %}
-                    </div>
                   </div>
                 </div>
               </li>

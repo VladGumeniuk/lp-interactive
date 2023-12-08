@@ -72,7 +72,7 @@
             "title_block": "ADHD",
             "text_block": "<p>Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterised by excessive amounts of inattention, hyperactivity, and impulsivity that are pervasive, impairing in multiple contexts, and otherwise age-inappropriate.<\/p>",
             "accordion_title": "What is ADHD?",
-            "accordion_text": "<p>Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterised by excessive amounts of inattention, hyperactivity, and impulsivity that are pervasive, impairing in multiple contexts, and otherwise  age-inappropriate.<\/p>",
+            "accordion_text": "<p>Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterised by excessive amounts of inattention, hyperactivity, and impulsivity that are pervasive, impairing in multiple contexts, and otherwise \u2028age-inappropriate.<\/p>",
             "accordion_title_for_links": "OUR RECOMMENDATIONS",
             "accordion_linklist": "adhd",
             "accordion_btn_text_1": "Book Coaching Session",
@@ -102,7 +102,7 @@
             "title_block": "Dyslexia",
             "text_block": "<p>Dyslexia is a learning disorder that involves difficulty reading due to problems identifying speech sounds and learning how they relate to letters and words (decoding).<\/p>",
             "accordion_title": "What is Dyslexia?",
-            "accordion_text": "<p>Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterised by excessive amounts of inattention, hyperactivity, and impulsivity that are pervasive, impairing in multiple contexts, and otherwise  age-inappropriate.<\/p>",
+            "accordion_text": "<p>Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterised by excessive amounts of inattention, hyperactivity, and impulsivity that are pervasive, impairing in multiple contexts, and otherwise \u2028age-inappropriate.<\/p>",
             "accordion_title_for_links": "OUR RECOMMENDATIONS",
             "accordion_linklist": "adhd",
             "accordion_btn_text_1": "Book Coaching Session",
@@ -131,7 +131,7 @@
             "title_block": "Dyscalculia",
             "text_block": "<p>Dyscalculia affects a person's ability to understand number-based information and math. People who have dyscalculia struggle with numbers and math because their brains don't process math-related concepts.<\/p>",
             "accordion_title": "What is Dyscalculia?",
-            "accordion_text": "<p>Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterised by excessive amounts of inattention, hyperactivity, and impulsivity that are pervasive, impairing in multiple contexts, and otherwise  age-inappropriate.<\/p>",
+            "accordion_text": "<p>Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterised by excessive amounts of inattention, hyperactivity, and impulsivity that are pervasive, impairing in multiple contexts, and otherwise \u2028age-inappropriate.<\/p>",
             "accordion_title_for_links": "OUR RECOMMENDATIONS",
             "accordion_linklist": "adhd",
             "accordion_btn_text_1": "Book Coaching Session",
@@ -171,11 +171,121 @@
         "pt_desk": 50,
         "pb_desk": 70
       }
+    },
+    "ea61b0ce-9c8f-424b-bd25-e59268903f2c": {
+      "type": "next-steps",
+      "blocks": {
+        "026ed53d-eadc-4913-981e-8ee7702aa5f6": {
+          "type": "block",
+          "settings": {
+            "title_step": "Submit Report",
+            "btn_text_block": "Submit your comprehensive report to your school (or employer)",
+            "btn_url_block": ""
+          }
+        },
+        "04c5c431-f3c6-4b51-8f4a-941717c3dbf0": {
+          "type": "block",
+          "settings": {
+            "title_step": "Get Support",
+            "btn_text_block": "Enroll in tutoring (or coaching) to strengthen your skills",
+            "btn_url_block": ""
+          }
+        },
+        "38c426c0-6ec3-4f22-bab5-aba3db6f4cf1": {
+          "type": "block",
+          "settings": {
+            "title_step": "Make a Plan",
+            "btn_text_block": "Chat with a Care Navigator to chart out a plan forward",
+            "btn_url_block": ""
+          }
+        },
+        "39d2c61f-0e9f-4e42-bcb1-a4f2c3a54dda": {
+          "type": "block",
+          "settings": {
+            "title_step": "Join Community",
+            "btn_text_block": "Join the Marker Community to connect, learn, and grow!",
+            "btn_url_block": ""
+          }
+        }
+      },
+      "block_order": [
+        "026ed53d-eadc-4913-981e-8ee7702aa5f6",
+        "04c5c431-f3c6-4b51-8f4a-941717c3dbf0",
+        "38c426c0-6ec3-4f22-bab5-aba3db6f4cf1",
+        "39d2c61f-0e9f-4e42-bcb1-a4f2c3a54dda"
+      ],
+      "settings": {
+        "title": "Next steps",
+        "btn_text": "Call your Care Navigator",
+        "btn_url": "",
+        "pt_mob": 25,
+        "pb_mob": 25,
+        "pt_tab": 40,
+        "pb_tab": 50,
+        "pt_desk": 75,
+        "pb_desk": 110
+      }
+    },
+    "eea75161-e97b-4fc7-ad41-1be99566eaa0": {
+      "type": "checking",
+      "blocks": {
+        "905c5f47-1478-4ac7-b959-c38eab602c52": {
+          "type": "block",
+          "settings": {
+            "bg_color": "#eb9530",
+            "name_dropdown": "That’s okay!",
+            "title_block": "That’s okay!",
+            "text_block": "<p>We know this can be a lot ofinformation to take in and we’re here to help. What’s the best way to get in touch?<\/p>",
+            "btn_text_block": "Button text",
+            "btn_url_block": ""
+          }
+        },
+        "3d2cbaa3-4964-40a5-844c-a3fa61fb20b0": {
+          "type": "block",
+          "settings": {
+            "bg_color": "#06A455",
+            "name_dropdown": "Great!",
+            "title_block": "Great!",
+            "text_block": "<p>We’re so glad you took thesesteps to learn more aboutyourself. See below for further resources and options.<\/p>",
+            "btn_text_block": "Button text",
+            "btn_url_block": ""
+          }
+        },
+        "aa00d909-7139-4697-ae28-1ea53f7ffb8c": {
+          "type": "block",
+          "settings": {
+            "bg_color": "#8da708",
+            "name_dropdown": "Loading",
+            "title_block": "Loading",
+            "text_block": "<p>We know this can be a lot ofinformation to take in and we’re here to help. What’s the best way to get in touch?<\/p>",
+            "btn_text_block": "Button text",
+            "btn_url_block": ""
+          }
+        }
+      },
+      "block_order": [
+        "905c5f47-1478-4ac7-b959-c38eab602c52",
+        "3d2cbaa3-4964-40a5-844c-a3fa61fb20b0",
+        "aa00d909-7139-4697-ae28-1ea53f7ffb8c"
+      ],
+      "settings": {
+        "title": "Checking in",
+        "text": "<p>Help us, help you! Let us know how you’re feeling after learning about your evaluation results.<\/p>",
+        "title_2": "I’m feeling...",
+        "pt_mob": 25,
+        "pb_mob": 25,
+        "pt_tab": 40,
+        "pb_tab": 50,
+        "pt_desk": 110,
+        "pb_desk": 70
+      }
     }
   },
   "order": [
     "21c67cce-a32a-4d15-8d27-4d69e575f05d",
     "3e3fbaf2-a353-4928-9c92-6a5e622e8698",
-    "58368e58-d43b-4fcb-830b-baf61c5e898d"
+    "58368e58-d43b-4fcb-830b-baf61c5e898d",
+    "ea61b0ce-9c8f-424b-bd25-e59268903f2c",
+    "eea75161-e97b-4fc7-ad41-1be99566eaa0"
   ]
 }
