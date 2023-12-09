@@ -58,11 +58,11 @@
       {% endif %}
 
       {% for block in blocks %}
-        {% assign title_block = block.settings.title_block %}
+        {% assign name_dropdown = block.settings.name_dropdown %}
         {% if forloop.index == 1 %}
           <div
             class="mt-4"
-            x-data="{id: 1, name: '{{ title_block }}', show: false }"
+            x-data="{id: 1, name: '{{ name_dropdown }}', show: false }"
           >
             <div class="relative w-full">
               <div
